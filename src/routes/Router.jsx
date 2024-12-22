@@ -5,12 +5,13 @@ import About from "../components/pages/About";
 import Contact from "../components/pages/Contact";
 import SingUp from "@/components/authPart/SingUp";
 import LogIn from "@/components/authPart/LogIn";
+import NotFoundPage from "@/components/common/NotFoundPage ";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <h1>404</h1>,
+    errorElement: <NotFoundPage />,
     children: [
       {
         path: "/",

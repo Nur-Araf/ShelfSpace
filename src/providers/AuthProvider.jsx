@@ -34,7 +34,7 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const singOut = () => {
+  const signOutUser = () => {
     setLoading(true);
     return signOut(auth);
   };
@@ -56,6 +56,8 @@ const AuthProvider = ({ children }) => {
           .catch((error) => {
             console.error("Error:", error);
           });
+
+        //changed Logout
       } else {
         axios
           .post(
@@ -85,7 +87,7 @@ const AuthProvider = ({ children }) => {
     setIsDark,
     singInWithGoogle,
     singInUser,
-    singOut,
+    signOutUser,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

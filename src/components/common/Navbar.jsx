@@ -18,7 +18,7 @@ const Navbar = () => {
     <nav className="bg-black z-50 pt-[6px] md:pt-4">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
-          <div className="absolute inset-y-0 right-0 flex items-center md:hidden">
+          <div className="absolute inset-y-0 right-0 flex items-center lg:hidden ">
             <button
               type="button"
               className="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
@@ -48,7 +48,7 @@ const Navbar = () => {
               </div>
             </div>
 
-            <div className="hidden md:flex md:ml-6 md:justify-center md:items-center flex-1">
+            <div className="hidden lg:flex md:ml-6 md:justify-center md:items-center flex-1">
               <div className="flex space-x-4">
                 <NavLink
                   to="/"
@@ -58,30 +58,30 @@ const Navbar = () => {
                   Home
                 </NavLink>
                 <NavLink
-                  to="/about"
+                  to="/all-books"
                   className="text-white hover:bg-blue-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   activeclassname="bg-blue-700"
                 >
-                  About
+                  All Books
                 </NavLink>
                 <NavLink
-                  to="/services"
+                  to="/add-book"
                   className="text-white hover:bg-blue-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   activeclassname="bg-blue-700"
                 >
-                  Services
+                  Add Book
                 </NavLink>
                 <NavLink
-                  to="/contact"
+                  to="/borrowed-books"
                   className="text-white hover:bg-blue-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   activeclassname="bg-blue-700"
                 >
-                  Contact
+                  Borrowed Books
                 </NavLink>
               </div>
             </div>
 
-            <div className="hidden md:flex space-x-4">
+            <div className="hidden lg:flex space-x-4">
               {user ? (
                 <>
                   <div className="relative inline-block group">
@@ -125,7 +125,7 @@ const Navbar = () => {
       <div
         className={`${
           isOpen ? "block" : "hidden"
-        } md:hidden transition-opacity duration-300 ease-in-out`}
+        } lg:hidden z-50 h-screen transition-opacity duration-300 ease-in-out`}
         id="mobile-menu"
       >
         <div className="px-2 pt-2 pb-3 space-y-1">
@@ -138,28 +138,28 @@ const Navbar = () => {
             Home
           </NavLink>
           <NavLink
-            to="/about"
+            to="/all-books"
             className="text-white hover:bg-blue-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             activeclassname="bg-blue-700"
             onClick={toggleMenu}
           >
-            About
+            All Books
           </NavLink>
           <NavLink
-            to="/services"
+            to="/add-book"
             className="text-white hover:bg-blue-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             activeclassname="bg-blue-700"
             onClick={toggleMenu}
           >
-            Services
+            Add Book
           </NavLink>
           <NavLink
-            to="/contact"
+            to="/borrowed-books"
             className="text-white hover:bg-blue-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             activeclassname="bg-blue-700"
             onClick={toggleMenu}
           >
-            Contact
+            Borrowed Books
           </NavLink>
           {user ? (
             <div className="flex items-center ml-2">

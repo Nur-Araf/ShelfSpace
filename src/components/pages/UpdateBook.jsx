@@ -282,7 +282,7 @@ const UpdateBook = () => {
               {loading ? (
                 <span className="loading loading-spinner loading-md"></span>
               ) : (
-                "Submit"
+                "Update Book"
               )}
             </button>
           </div>

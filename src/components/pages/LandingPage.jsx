@@ -1,5 +1,11 @@
+import BookCatagories from "../landingPage/BookCatagories";
+
 const LandingPage = () => {
-  return <div>LandingPage</div>;
+  return (
+    <>
+      <BookCatagories />
+    </>
+  );
 };
 
 export default LandingPage;

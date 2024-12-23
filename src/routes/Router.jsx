@@ -7,6 +7,7 @@ import NotFoundPage from "@/components/common/NotFoundPage ";
 import AllBooks from "@/components/pages/AllBooks";
 import AddBook from "@/components/pages/AddBook";
 import BorrowedBooks from "@/components/pages/BorrowedBooks";
+import UpdateBook from "@/components/pages/UpdateBook";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/borrowed-books",
         element: <BorrowedBooks />,
+      },
+      {
+        path: "/update-book/:id",
+        element: <UpdateBook />,
       },
       {
         path: "/log-in",

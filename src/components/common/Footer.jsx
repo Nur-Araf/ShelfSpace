@@ -14,7 +14,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer ref={footerRef} className="bg-black text-gray-300 py-8">
+    <footer ref={footerRef} className="bg-black text-gray-300 py-16">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-0">
           <div className="mb-4 md:mb-0 text-center lg:text-left">

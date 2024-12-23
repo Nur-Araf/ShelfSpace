@@ -188,8 +188,8 @@ const AddBook = () => {
             <label className="block text-white mb-2">Category:</label>
             <Controller
               name="category"
-              control={control} // Pass control here
-              defaultValue="" // Default value for the select input
+              control={control} 
+              defaultValue="" 
               onChange={handleCategoryChange}
               render={({ field }) => (
                 <Select

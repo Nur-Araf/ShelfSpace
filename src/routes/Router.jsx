@@ -8,8 +8,8 @@ import AllBooks from "@/components/pages/AllBooks";
 import AddBook from "@/components/pages/AddBook";
 import BorrowedBooks from "@/components/pages/BorrowedBooks";
 import UpdateBook from "@/components/pages/UpdateBook";
-import DetailsBook from "@/components/landingPage/DetailsBook";
 import CategoryPage from "@/components/landingPage/CategoryPage";
+import DetailsBookPage from "@/components/landingPage/DetailsBook";
 
 const router = createBrowserRouter([
   {
@@ -42,8 +42,8 @@ const router = createBrowserRouter([
         element: <CategoryPage />,
       },
       {
-        path: "/detail-book/:name",
-        element: <DetailsBook />,
+        path: "/detail-book/:id",
+        element: <DetailsBookPage />,
       },
       {
         path: "/log-in",

@@ -83,7 +83,7 @@ const CategoryPage = () => {
                 edit={false}
               />
               <Link
-                to={`/detail-book/${book.name}`}
+                to={`/detail-book/${book._id}`}
                 className="bg-blue-500 mt-2 text-white py-2 px-4 rounded-md flex items-center justify-center hover:bg-blue-600 transition duration-300"
               >
                 <AiOutlineInfoCircle className="mr-2" /> Details

@@ -48,7 +48,6 @@ const UpdateBook = () => {
           formData
         );
         imageUrl = response.data.data.url;
-        console.log("Image URL:", imageUrl);
       } catch (error) {
         console.error(
           "Image upload failed:",

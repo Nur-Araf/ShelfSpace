@@ -21,7 +21,6 @@ const AllBooks = () => {
 
   return (
     <div className="bg-gray-900 min-h-screen p-4 py-8 md:py-12 lg:py-16">
-      {/* Hero Section with Animation */}
       <div className="text-center mb-8">
         <motion.h1
           className="text-4xl font-bold text-blue-500 mb-4"
@@ -42,7 +41,6 @@ const AllBooks = () => {
         </motion.p>
       </div>
 
-      {/* Book Cards with Scroll Animations */}
       {books.length > 0 ? (
         <div className="max-w-[25rem] md:max-w-2xl lg:max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 md:pt-6 lg:pt-12">
           {books.map((book, index) => (

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { AuthContext } from "@/providers/AuthProvider";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { toast } from "react-toastify";
 
 const DetailsBookPage = () => {
   const { user } = useContext(AuthContext);
@@ -12,6 +13,13 @@ const DetailsBookPage = () => {
   const [book, setBook] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [returnDate, setReturnDate] = useState("");
+
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+  const day = String(currentDate.getDate()).padStart(2, "0");
+
+  const takenDate = `${year}-${month}-${day}`;
 
   useEffect(() => {
     const fetchBookData = async () => {
@@ -26,43 +34,62 @@ const DetailsBookPage = () => {
     fetchBookData();
   }, [id]);
 
-const giveUpdateQuantity = async () => {
-  try {
-    // eslint-disable-next-line no-unused-vars
-    const response = await axios.put(
-      `http://localhost:5000/update-quantity/${id}`,
-      {
-        quantity: book.quantity - 1,
-      }
-    );
-    setBook((prevBook) => ({
-      ...prevBook,
-      quantity: prevBook.quantity - 1,
-    }));
-  } catch (error) {
-    console.log(error);
-  }
-};
+  const giveUpdateQuantity = async () => {
+    try {
+      // eslint-disable-next-line no-unused-vars
+      const response = await axios.put(
+        `http://localhost:5000/update-quantity/${id}`,
+        {
+          quantity: book.quantity - 1,
+        }
+      );
+      setBook((prevBook) => ({
+        ...prevBook,
+        quantity: prevBook.quantity - 1,
+      }));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleBorrow = async () => {
     if (!returnDate || book.quantity === 0) return;
 
     try {
+      const borrowCheckResponse = await axios.get(
+        `http://localhost:5000/borrow/check`,
+        {
+          params: { bookId: id, userEmail: user.email },
+        }
+      );
+
+      if (borrowCheckResponse.data.hasBorrowed) {
+        toast.error("You have already borrowed this book!");
+        return;
+      }
+
       const response = await axios.post(`http://localhost:5000/borrow`, {
         bookId: id,
         userEmail: user.email,
         returnDate,
+        takenDate,
       });
 
       if (response.status === 201) {
         giveUpdateQuantity();
         setIsModalOpen(false);
+        toast.success("Book borrowed successfully!");
       } else {
         console.error("Failed to borrow the book:", response.data);
       }
     } catch (error) {
       console.error("Error borrowing book:", error);
     }
+  };
+ 
+  const handleDateChange = (date) => {
+    const formattedDate = date.toLocaleDateString("en-CA");
+    setReturnDate(formattedDate);
   };
 
   return (
@@ -140,8 +167,8 @@ const giveUpdateQuantity = async () => {
               <div>
                 <label className="block text-sm font-medium">Return Date</label>
                 <DatePicker
-                  selected={returnDate}
-                  onChange={(date) => setReturnDate(date)}
+                  selected={returnDate ? new Date(returnDate) : null}
+                  onChange={handleDateChange}
                   dateFormat="yyyy/MM/dd"
                   className="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md"
                   required

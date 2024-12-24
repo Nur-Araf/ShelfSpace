@@ -8,12 +8,10 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const DetailsBookPage = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
   const { id } = useParams();
   const [book, setBook] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [returnDate, setReturnDate] = useState("");
-  console.log(returnDate);
 
   useEffect(() => {
     const fetchBookData = async () => {
@@ -28,20 +26,43 @@ const DetailsBookPage = () => {
     fetchBookData();
   }, [id]);
 
+const giveUpdateQuantity = async () => {
+  try {
+    // eslint-disable-next-line no-unused-vars
+    const response = await axios.put(
+      `http://localhost:5000/update-quantity/${id}`,
+      {
+        quantity: book.quantity - 1,
+      }
+    );
+    setBook((prevBook) => ({
+      ...prevBook,
+      quantity: prevBook.quantity - 1,
+    }));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
   const handleBorrow = async () => {
     if (!returnDate || book.quantity === 0) return;
 
-    // try {
-    //   await axios.post(`http://localhost:5000/borrow`, {
-    //     bookId: id,
-    //     userEmail: user.email,
-    //     returnDate,
-    //   });
-    //   setBook({ ...book, quantity: book.quantity - 1 });
-    //   setIsModalOpen(false);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    try {
+      const response = await axios.post(`http://localhost:5000/borrow`, {
+        bookId: id,
+        userEmail: user.email,
+        returnDate,
+      });
+
+      if (response.status === 201) {
+        giveUpdateQuantity();
+        setIsModalOpen(false);
+      } else {
+        console.error("Failed to borrow the book:", response.data);
+      }
+    } catch (error) {
+      console.error("Error borrowing book:", error);
+    }
   };
 
   return (

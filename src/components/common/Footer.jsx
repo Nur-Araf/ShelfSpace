@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const footerRef = useRef(null);
@@ -19,14 +20,16 @@ const Footer = () => {
         <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-0">
           <div className="mb-4 md:mb-0 text-center lg:text-left">
             <div className="flex items-center justify-center md:justify-start">
-              <div className="h-28 w-36 md:h-36 md:w-44 lg:h-44 lg:w-52">
-                <img
-                  src="/logo.png"
-                  alt="logo"
-                  className="h-full w-full object-contain"
-                />
-              </div>
-              <h2 className="text-2xl font-bold text-blue-500">ShelfSpace</h2>
+              <Link to="/">
+                <div className="h-28 w-36 md:h-36 md:w-44 lg:h-44 lg:w-52">
+                  <img
+                    src="/logo.png"
+                    alt="logo"
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <h2 className="text-2xl font-bold text-blue-500">ShelfSpace</h2>
+              </Link>
             </div>
             <div>
               <p className="mt-2 text-blue-500 text-xl font-semibold">

@@ -1,7 +1,7 @@
 import { AuthContext } from "@/providers/AuthProvider";
 import { useContext, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { NavLink } from "react-router-dom"; // Make sure react-router-dom is installed
+import { Link, NavLink } from "react-router-dom"; // Make sure react-router-dom is installed
 
 // make with cretancial true in axios
 
@@ -43,7 +43,9 @@ const Navbar = () => {
                     className="h-full w-full object-contain"
                   />
                 </div>
-                <h2 className="text-2xl font-bold text-blue-500">ShelfSpace</h2>
+                <h2 className="text-2xl font-bold text-blue-500">
+                  <Link to={"/"}>ShelfSpace</Link>
+                </h2>
               </div>
             </div>
 

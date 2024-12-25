@@ -14,13 +14,13 @@ const AnimatedBird = () => {
 
       // Apply animation to bird container
       gsap.to(".bird-container", {
-        duration: 5, // Duration for each random movement
-        x: randomX, // Random horizontal movement
-        y: randomY, // Random vertical movement
-        ease: "power1.inOut", // Smooth ease for movement
-        scaleX: isMovingRight ? 1 : -1, // Flip the bird if moving left
-        repeat: 0, // No need to repeat on its own
-        onComplete: animateBird, // Recursively call animateBird for continuous movement
+        duration: 10,
+        x: randomX,
+        y: randomY,
+        ease: "power1.inOut", 
+        scaleX: isMovingRight ? 1 : -1, 
+        repeat: 0, 
+        onComplete: animateBird,
       });
     };
 

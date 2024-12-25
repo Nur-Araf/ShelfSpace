@@ -1,3 +1,4 @@
+import AboutUs from "../landingPage/AboutUs";
 import BannerSlider from "../landingPage/BannerSlider";
 import BookCatagories from "../landingPage/BookCatagories";
 import FeedBack from "../landingPage/FeedBack";
@@ -8,6 +9,7 @@ const LandingPage = () => {
       <BannerSlider />
       <BookCatagories />
       <FeedBack />
+      <AboutUs />
     </>
   );
 };

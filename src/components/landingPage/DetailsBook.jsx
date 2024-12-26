@@ -1,4 +1,3 @@
-
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -7,6 +6,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { toast } from "react-toastify";
 import useAxiosScure from "@/hooks/AxiosScure";
+import { Helmet } from "react-helmet";
 
 const DetailsBookPage = () => {
   const { user } = useContext(AuthContext);
@@ -90,7 +90,7 @@ const DetailsBookPage = () => {
       console.error("Error borrowing book:", error);
     }
   };
- 
+
   const handleDateChange = (date) => {
     const formattedDate = date.toLocaleDateString("en-CA");
     setReturnDate(formattedDate);
@@ -98,6 +98,9 @@ const DetailsBookPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 flex items-center justify-center p-3 md:p-5 md:py-16">
+      <Helmet>
+        <title>Book Details - ShelfSpace</title>
+      </Helmet>
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}

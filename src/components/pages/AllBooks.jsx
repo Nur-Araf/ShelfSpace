@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import Loading from "../animations/Loading";
 import useAxiosScure from "@/hooks/AxiosScure";
+import { Helmet } from "react-helmet";
 
 const AllBooks = () => {
   const axiosScure = useAxiosScure();
@@ -35,6 +36,9 @@ const AllBooks = () => {
 
   return (
     <div className="bg-gray-900 min-h-screen p-4 py-8 md:py-12 lg:py-16">
+      <Helmet>
+        <title>All Books - ShelfSpace</title>
+      </Helmet>
       <div className="text-center mb-8">
         <motion.h1
           className="text-4xl font-bold text-blue-500 mb-4"

@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import Working from "../animations/Working";
 import { AuthContext } from "@/providers/AuthProvider";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const LogIn = () => {
   const { singInUser, setUser, singInWithGoogle } = useContext(AuthContext);
@@ -48,6 +49,9 @@ const LogIn = () => {
 
   return (
     <div className="flex gap-6 font-montserrat justify-center items-center min-h-screen bg-gray-900 px-4 py-8">
+      <Helmet>
+        <title>Log In - ShelfSpace</title>
+      </Helmet>
       <div className="bg-black lg:ml-32 p-8 rounded-lg shadow-lg w-full sm:max-w-md lg:max-w-lg">
         <h2 className="text-3xl font-bold text-center text-white mb-6">
           Sign In

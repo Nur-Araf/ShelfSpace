@@ -8,6 +8,7 @@ import WorkingMan from "../animations/Man";
 import { AuthContext } from "@/providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const SignUp = () => {
   const { setUser, singInWithGoogle, createUser } = useContext(AuthContext);
@@ -67,7 +68,9 @@ const SignUp = () => {
   return (
     <>
       <div className="flex lg::justify-between justify-center items-center font-montserrat min-h-screen bg-gray-900 px-4 py-8">
-        
+        <Helmet>
+          <title>Register - ShelfSpace</title>
+        </Helmet>
         <div className="w-96 h-96 hidden lg:block">
           <Proton />
         </div>

@@ -6,6 +6,7 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import ReactStars from "react-rating-stars-component";
 import Loading from "@/components/animations/Loading";
 import useAxiosScure from "@/hooks/AxiosScure";
+import { Helmet } from "react-helmet";
 
 const CategoryPage = () => {
   const axiosScure = useAxiosScure();
@@ -29,6 +30,9 @@ const CategoryPage = () => {
 
   return (
     <div className="bg-gray-900 min-h-screen p-4 py-8 md:py-12 lg:py-16">
+      <Helmet>
+        <title>{title} - ShelfSpace</title>
+      </Helmet>
       {/* Hero Section with Animation */}
       <div className="text-center mb-8">
         <motion.h1

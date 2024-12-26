@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import PageNotFound from "../animations/PageNotFound";
+import { Helmet } from "react-helmet";
 
 const NotFoundPage = () => {
   return (
     <div className="h-dvh flex flex-col justify-center items-center bg-black text-white overflow-hidden">
+      <Helmet>
+        <title>404 - ShelfSpace</title>
+      </Helmet>
       <PageNotFound />
 
       <Link

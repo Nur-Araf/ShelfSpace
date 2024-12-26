@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { GiReturnArrow } from "react-icons/gi";
 import Swal from "sweetalert2";
 import useAxiosScure from "@/hooks/AxiosScure";
+import { Helmet } from "react-helmet";
 
 const BorrowedBooks = () => {
   const { user } = useContext(AuthContext);
@@ -102,6 +103,9 @@ const BorrowedBooks = () => {
 
   return (
     <div className="bg-gray-900 min-h-screen p-4 py-8 md:py-12 lg:py-16">
+      <Helmet>
+        <title>Borrowed Books - ShelfSpace</title>
+      </Helmet>
       <div className="text-center mb-8">
         <motion.h1
           className="text-4xl font-bold text-blue-500 mb-4"
@@ -148,7 +152,10 @@ const BorrowedBooks = () => {
                 <p className="text-gray-400 mb-2">Category: {book.category}</p>
                 <p className="text-gray-400 mb-2">Borrowed Date: {takenDate}</p>
                 <p className="text-gray-400 mb-2">Return Date: {returnDate}</p>
-                <button onClick={() => handleReturn(book._id)} className="bg-blue-500 mt-2 text-white py-2 px-4 rounded-md flex items-center justify-center hover:bg-blue-600 transition duration-300">
+                <button
+                  onClick={() => handleReturn(book._id)}
+                  className="bg-blue-500 mt-2 text-white py-2 px-4 rounded-md flex items-center justify-center hover:bg-blue-600 transition duration-300"
+                >
                   <GiReturnArrow className="mr-2" /> Return
                 </button>
               </motion.div>

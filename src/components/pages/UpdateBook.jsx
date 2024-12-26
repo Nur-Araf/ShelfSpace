@@ -5,6 +5,7 @@ import Select from "react-select";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import useAxiosScure from "@/hooks/AxiosScure";
+import { Helmet } from "react-helmet";
 
 const UpdateBook = () => {
   const {
@@ -152,6 +153,9 @@ const UpdateBook = () => {
 
   return (
     <div className="my-8 md:my-20">
+      <Helmet>
+        <title>Update Books - ShelfSpace</title>
+      </Helmet>
       <div className="max-w-[25rem] md:max-w-2xl mx-auto bg-gray-900 p-4 md:p-8 rounded-xl shadow-lg">
         <h2 className="text-3xl font-semibold text-center text-white mb-8">
           Update Book Details

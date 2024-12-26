@@ -10,6 +10,7 @@ import BorrowedBooks from "@/components/pages/BorrowedBooks";
 import UpdateBook from "@/components/pages/UpdateBook";
 import CategoryPage from "@/components/landingPage/CategoryPage";
 import DetailsBookPage from "@/components/landingPage/DetailsBook";
+import PrivateRoute from "@/components/authPart/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -23,27 +24,51 @@ const router = createBrowserRouter([
       },
       {
         path: "/all-books",
-        element: <AllBooks />,
+        element: (
+          <PrivateRoute>
+            <AllBooks />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/add-book",
-        element: <AddBook />,
+        element: (
+          <PrivateRoute>
+            <AddBook />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/borrowed-books",
-        element: <BorrowedBooks />,
+        element: (
+          <PrivateRoute>
+            <BorrowedBooks />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/update-book/:id",
-        element: <UpdateBook />,
+        element: (
+          <PrivateRoute>
+            <UpdateBook />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/category/:title",
-        element: <CategoryPage />,
+        element: (
+          <PrivateRoute>
+            <CategoryPage />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/detail-book/:id",
-        element: <DetailsBookPage />,
+        element: (
+          <PrivateRoute>
+            <DetailsBookPage />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/log-in",

@@ -46,7 +46,7 @@ const AuthProvider = ({ children }) => {
       if (user?.email) {
         const userEmail = { email: user.email };
         axios
-          .post("http://localhost:5000/jwt", userEmail, {
+          .post("https://assingment11-backend.vercel.app/jwt", userEmail, {
             withCredentials: true,
           })
           .then((data) => {
@@ -59,7 +59,7 @@ const AuthProvider = ({ children }) => {
       } else {
         axios
           .post(
-            "http://localhost:5000/logout",
+            "https://assingment11-backend.vercel.app/logout",
             {},
             {
               withCredentials: true,

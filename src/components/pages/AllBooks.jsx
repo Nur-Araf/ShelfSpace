@@ -16,10 +16,12 @@ const AllBooks = () => {
 
   useEffect(() => {
     try {
-      axiosScure.get("http://localhost:5000/all-books").then((res) => {
-        setBooks(res.data);
-        setFilteredBooks(res.data);
-      });
+      axiosScure
+        .get("https://assingment11-backend.vercel.app/all-books")
+        .then((res) => {
+          setBooks(res.data);
+          setFilteredBooks(res.data);
+        });
     } catch (error) {
       console.log("Books not Found", error);
     }

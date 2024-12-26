@@ -27,7 +27,7 @@ const DetailsBookPage = () => {
     const fetchBookData = async () => {
       try {
         const response = await axiosScure.get(
-          `http://localhost:5000/book/${id}`
+          `https://assingment11-backend.vercel.app/book/${id}`
         );
         setBook(response.data);
       } catch (error) {
@@ -42,7 +42,7 @@ const DetailsBookPage = () => {
     try {
       // eslint-disable-next-line no-unused-vars
       const response = await axiosScure.put(
-        `http://localhost:5000/update-quantity/${id}`,
+        `https://assingment11-backend.vercel.app/update-quantity/${id}`,
         {
           quantity: book.quantity - 1,
         }
@@ -61,7 +61,7 @@ const DetailsBookPage = () => {
 
     try {
       const borrowCheckResponse = await axiosScure.get(
-        `http://localhost:5000/borrow/check`,
+        `https://assingment11-backend.vercel.app/borrow/check`,
         {
           params: { bookId: id, userEmail: user.email },
         }
@@ -72,12 +72,15 @@ const DetailsBookPage = () => {
         return;
       }
 
-      const response = await axiosScure.post(`http://localhost:5000/borrow`, {
-        bookId: id,
-        userEmail: user.email,
-        returnDate,
-        takenDate,
-      });
+      const response = await axiosScure.post(
+        `https://assingment11-backend.vercel.app/borrow`,
+        {
+          bookId: id,
+          userEmail: user.email,
+          returnDate,
+          takenDate,
+        }
+      );
 
       if (response.status === 201) {
         giveUpdateQuantity();

@@ -18,7 +18,7 @@ const UpdateBook = () => {
   } = useForm();
   const [oneBook, setOneBook] = useState({});
   const [loading, setLoading] = useState(false);
-   const axiosScure = useAxiosScure();
+  const axiosScure = useAxiosScure();
   const [isImageSelected, setIsImageSelected] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -27,7 +27,7 @@ const UpdateBook = () => {
     const fetchBookData = async () => {
       try {
         const response = await axiosScure.get(
-          `http://localhost:5000/book/${id}`
+          `https://assingment11-backend.vercel.app/book/${id}`
         );
         setOneBook(response.data);
         reset(response.data);
@@ -76,7 +76,10 @@ const UpdateBook = () => {
     };
 
     try {
-      await axiosScure.put(`http://localhost:5000/update-book/${id}`, bookData);
+      await axiosScure.put(
+        `https://assingment11-backend.vercel.app/update-book/${id}`,
+        bookData
+      );
       reset();
       toast.success("Book updated successfully!");
       navigate("/all-books");

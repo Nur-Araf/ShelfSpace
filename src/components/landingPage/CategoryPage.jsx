@@ -17,7 +17,7 @@ const CategoryPage = () => {
     const fetchCategoryData = async () => {
       try {
         const response = await axiosScure.get(
-          `http://localhost:5000/category/${title}`
+          `https://assingment11-backend.vercel.app/category/${title}`
         );
         setCategories(response.data);
       } catch (error) {

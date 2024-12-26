@@ -18,7 +18,7 @@ const BorrowedBooks = () => {
     const fetchBorrowedData = async () => {
       try {
         const response = await axiosScure.get(
-          `http://localhost:5000/borrowed-books/${user?.email}`
+          `https://assingment11-backend.vercel.app/borrowed-books/${user?.email}`
         );
         setBorrowBooksData(response.data);
       } catch (error) {
@@ -38,7 +38,7 @@ const BorrowedBooks = () => {
     const fetchBookDetails = async () => {
       try {
         const bookDetailsPromises = borrowBookId.map((id) =>
-          axiosScure.get(`http://localhost:5000/book/${id}`)
+          axiosScure.get(`https://assingment11-backend.vercel.app/book/${id}`)
         );
         const bookDetailsResponses = await Promise.all(bookDetailsPromises);
         const bookDetails = bookDetailsResponses.map(
@@ -76,7 +76,7 @@ const BorrowedBooks = () => {
       });
 
       await axiosScure
-        .delete(`http://localhost:5000/borrow/${bookId}`)
+        .delete(`https://assingment11-backend.vercel.app/borrow/${bookId}`)
         .then((res) => {
           console.log(res.data);
         });

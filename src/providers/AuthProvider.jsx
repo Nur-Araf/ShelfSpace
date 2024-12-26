@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
       setUser(user);
 
       if (user?.email) {
-        const userEmail = { email: user.email }; // Change variable name to avoid conflict
+        const userEmail = { email: user.email };
         axios
           .post("http://localhost:5000/jwt", userEmail, {
             withCredentials: true,
@@ -56,8 +56,6 @@ const AuthProvider = ({ children }) => {
           .catch((error) => {
             console.error("Error:", error);
           });
-
-        //changed Logout
       } else {
         axios
           .post(

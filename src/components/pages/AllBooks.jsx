@@ -1,23 +1,24 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import Loading from "../animations/Loading";
+import useAxiosScure from "@/hooks/AxiosScure";
 
 const AllBooks = () => {
+  const axiosScure = useAxiosScure();
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
     try {
-      axios.get("http://localhost:5000/all-books").then((res) => {
+      axiosScure.get("http://localhost:5000/all-books").then((res) => {
         setBooks(res.data);
       });
     } catch (error) {
       console.log("Books not Found", error);
     }
-  }, []);
+  }, [axiosScure]);
 
   return (
     <div className="bg-gray-900 min-h-screen p-4 py-8 md:py-12 lg:py-16">
@@ -84,7 +85,9 @@ const AllBooks = () => {
         </div>
       ) : (
         <div className="max-w-[25rem] md:max-w-2xl lg:max-w-5xl mx-auto">
-          <h1 className="text-lg text-center font-semibold text-blue-500 md:mb-4">Loading... Please Wait</h1>
+          <h1 className="text-lg text-center font-semibold text-blue-500 md:mb-4">
+            Loading... Please Wait
+          </h1>
           <div className="h-[22rem] w-[22rem] md:h-[32rem] md:w-[32rem] flex items-center justify-center">
             <Loading />
           </div>

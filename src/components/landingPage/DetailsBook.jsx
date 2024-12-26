@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -6,9 +6,11 @@ import { AuthContext } from "@/providers/AuthProvider";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { toast } from "react-toastify";
+import useAxiosScure from "@/hooks/AxiosScure";
 
 const DetailsBookPage = () => {
   const { user } = useContext(AuthContext);
+  const axiosScure = useAxiosScure();
   const { id } = useParams();
   const [book, setBook] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,7 +26,9 @@ const DetailsBookPage = () => {
   useEffect(() => {
     const fetchBookData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/book/${id}`);
+        const response = await axiosScure.get(
+          `http://localhost:5000/book/${id}`
+        );
         setBook(response.data);
       } catch (error) {
         console.log(error);
@@ -32,12 +36,12 @@ const DetailsBookPage = () => {
     };
 
     fetchBookData();
-  }, [id]);
+  }, [axiosScure, id]);
 
   const giveUpdateQuantity = async () => {
     try {
       // eslint-disable-next-line no-unused-vars
-      const response = await axios.put(
+      const response = await axiosScure.put(
         `http://localhost:5000/update-quantity/${id}`,
         {
           quantity: book.quantity - 1,
@@ -56,7 +60,7 @@ const DetailsBookPage = () => {
     if (!returnDate || book.quantity === 0) return;
 
     try {
-      const borrowCheckResponse = await axios.get(
+      const borrowCheckResponse = await axiosScure.get(
         `http://localhost:5000/borrow/check`,
         {
           params: { bookId: id, userEmail: user.email },
@@ -68,7 +72,7 @@ const DetailsBookPage = () => {
         return;
       }
 
-      const response = await axios.post(`http://localhost:5000/borrow`, {
+      const response = await axiosScure.post(`http://localhost:5000/borrow`, {
         bookId: id,
         userEmail: user.email,
         returnDate,

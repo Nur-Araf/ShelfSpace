@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Select from "react-select";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import useAxiosScure from "@/hooks/AxiosScure";
 
 const UpdateBook = () => {
   const {
@@ -16,6 +17,7 @@ const UpdateBook = () => {
   } = useForm();
   const [oneBook, setOneBook] = useState({});
   const [loading, setLoading] = useState(false);
+   const axiosScure = useAxiosScure();
   const [isImageSelected, setIsImageSelected] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -23,7 +25,9 @@ const UpdateBook = () => {
   useEffect(() => {
     const fetchBookData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/book/${id}`);
+        const response = await axiosScure.get(
+          `http://localhost:5000/book/${id}`
+        );
         setOneBook(response.data);
         reset(response.data);
       } catch (error) {
@@ -32,7 +36,7 @@ const UpdateBook = () => {
     };
 
     fetchBookData();
-  }, [id, reset]);
+  }, [axiosScure, id, reset]);
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -71,7 +75,7 @@ const UpdateBook = () => {
     };
 
     try {
-      await axios.put(`http://localhost:5000/update-book/${id}`, bookData);
+      await axiosScure.put(`http://localhost:5000/update-book/${id}`, bookData);
       reset();
       toast.success("Book updated successfully!");
       navigate("/all-books");

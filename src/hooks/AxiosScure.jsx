@@ -9,7 +9,7 @@ const axiosScure = axios.create({
 });
 
 const useAxiosScure = () => {
-  const { singOut } = useContext(AuthContext);
+  const { signOutUser } = useContext(AuthContext);
   const navigation = useNavigate();
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const useAxiosScure = () => {
       },
       (err) => {
         if (err.response.status === 401 || err.response.status === 403) {
-          singOut()
+          signOutUser()
             .then(() => {
               navigation("/log-in");
             })

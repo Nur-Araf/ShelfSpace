@@ -5,16 +5,17 @@ import { motion } from "framer-motion";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import ReactStars from "react-rating-stars-component";
 import Loading from "@/components/animations/Loading";
-import axios from "axios";
+import useAxiosScure from "@/hooks/AxiosScure";
 
 const CategoryPage = () => {
+  const axiosScure = useAxiosScure();
   const [categories, setCategories] = useState([]);
   const { title } = useParams();
 
   useEffect(() => {
     const fetchCategoryData = async () => {
       try {
-        const response = await axios.get(
+        const response = await axiosScure.get(
           `http://localhost:5000/category/${title}`
         );
         setCategories(response.data);
@@ -24,7 +25,7 @@ const CategoryPage = () => {
     };
 
     fetchCategoryData();
-  }, [title]);
+  }, [axiosScure, title]);
 
   return (
     <div className="bg-gray-900 min-h-screen p-4 py-8 md:py-12 lg:py-16">

@@ -1,13 +1,14 @@
 import { AuthContext } from "@/providers/AuthProvider";
-import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import Loading from "../animations/Loading";
 import { motion } from "framer-motion";
 import { GiReturnArrow } from "react-icons/gi";
 import Swal from "sweetalert2";
+import useAxiosScure from "@/hooks/AxiosScure";
 
 const BorrowedBooks = () => {
   const { user } = useContext(AuthContext);
+  const axiosScure = useAxiosScure();
   const [borrowBooksData, setBorrowBooksData] = useState([]);
   const [borrowBookId, setBorrowBookId] = useState([]);
   const [borrowedBooks, setBorrowedBooks] = useState([]);
@@ -15,7 +16,7 @@ const BorrowedBooks = () => {
   useEffect(() => {
     const fetchBorrowedData = async () => {
       try {
-        const response = await axios.get(
+        const response = await axiosScure.get(
           `http://localhost:5000/borrowed-books/${user?.email}`
         );
         setBorrowBooksData(response.data);
@@ -25,7 +26,7 @@ const BorrowedBooks = () => {
     };
 
     fetchBorrowedData();
-  }, [user?.email]);
+  }, [user?.email, axiosScure]);
 
   useEffect(() => {
     const ids = borrowBooksData.map((book) => book.bookId);
@@ -36,7 +37,7 @@ const BorrowedBooks = () => {
     const fetchBookDetails = async () => {
       try {
         const bookDetailsPromises = borrowBookId.map((id) =>
-          axios.get(`http://localhost:5000/book/${id}`)
+          axiosScure.get(`http://localhost:5000/book/${id}`)
         );
         const bookDetailsResponses = await Promise.all(bookDetailsPromises);
         const bookDetails = bookDetailsResponses.map(
@@ -51,7 +52,7 @@ const BorrowedBooks = () => {
     if (borrowBookId.length > 0) {
       fetchBookDetails();
     }
-  }, [borrowBookId]);
+  }, [axiosScure, borrowBookId]);
 
   const getBorrowedData = (bookId) => {
     const matchedBook = borrowBooksData.find((book) => book.bookId === bookId);
@@ -73,7 +74,7 @@ const BorrowedBooks = () => {
         },
       });
 
-      await axios
+      await axiosScure
         .delete(`http://localhost:5000/borrow/${bookId}`)
         .then((res) => {
           console.log(res.data);

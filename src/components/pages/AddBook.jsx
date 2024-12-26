@@ -4,9 +4,11 @@ import "react-toastify/dist/ReactToastify.css";
 import Select from "react-select";
 import axios from "axios";
 import { useState } from "react";
+import useAxiosScure from "@/hooks/AxiosScure";
 
 const AddBook = () => {
   const [loading, setLoading] = useState(false);
+   const axiosScure = useAxiosScure();
   const {
     register,
     handleSubmit,
@@ -16,47 +18,45 @@ const AddBook = () => {
     control,
   } = useForm();
 
-  const onSubmit = async (data) => {
-    setLoading(true);
-    const imageFile = data.image[0];
+const onSubmit = async (data) => {
+  setLoading(true);
+  const imageFile = data.image[0];
 
-    const formData = new FormData();
-    formData.append("image", imageFile);
+  const formData = new FormData();
+  formData.append("image", imageFile);
 
-    try {
-      const response = await axios.post(
-        `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_imgdb}`,
-        formData
-      );
-      const imageUrl = response.data.data.url;
+  try {
+    const response = await axios.post(
+      `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_imgdb}`,
+      formData
+    );
+    const imageUrl = response.data.data.url;
+    const bookData = {
+      ...data,
+      category: data.category.value, 
+      image: imageUrl,
+    };
 
-      console.log("Image URL:", imageUrl);
+    axiosScure
+      .post("http://localhost:5000/add-book", bookData)
+      .then((response) => {
+        console.log(response.data);
+        toast.success("Book details submitted successfully!");
+        setLoading(false);
+        reset(); 
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        toast.error("Failed to submit book details. Please try again.");
+        setLoading(false); 
+      });
+  } catch (error) {
+    console.error("Error uploading image:", error);
+    toast.error("Failed to upload image. Please try again.");
+    setLoading(false); 
+  }
+};
 
-      // You can now include the image URL in the data you want to send to your server
-      const bookData = {
-        ...data,
-        imageUrl: imageUrl,
-      };
-
-      axios
-        .post("http://localhost:5000/add-book", bookData)
-        .then((response) => {
-          console.log(response.data);
-          toast.success("Book details submitted successfully!");
-          setLoading(false);
-          reset();
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-
-      toast.success("Book details and image uploaded successfully!");
-      reset();
-    } catch (error) {
-      console.error("Error uploading image:", error);
-      toast.error("Failed to upload image. Please try again.");
-    }
-  };
 
   const customStyles = {
     control: (provided) => ({

@@ -15,7 +15,7 @@ const AboutUs = () => {
         </motion.h2>
 
         <motion.p
-          className="text-xl text-gray-400 mb-8"
+          className="text-base md:text-xl text-gray-400 mb-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

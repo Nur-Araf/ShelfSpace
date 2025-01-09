@@ -67,7 +67,7 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="flex lg::justify-between justify-center items-center font-montserrat min-h-screen bg-gray-900 px-4 py-8">
+      <div className="flex lg::justify-between justify-center items-center font-montserrat min-h-screen bg-gray-900 bg-opacity-70 px-4 py-8">
         <Helmet>
           <title>Register - ShelfSpace</title>
         </Helmet>

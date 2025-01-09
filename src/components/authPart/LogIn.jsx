@@ -48,7 +48,7 @@ const LogIn = () => {
   };
 
   return (
-    <div className="flex gap-6 font-montserrat justify-center items-center min-h-screen bg-gray-900 px-4 py-8">
+    <div className="flex gap-6 font-montserrat justify-center items-center min-h-screen bg-gray-900 bg-opacity-70 px-4 py-8">
       <Helmet>
         <title>Log In - ShelfSpace</title>
       </Helmet>

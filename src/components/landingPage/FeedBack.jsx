@@ -49,7 +49,7 @@ const feedbacks = [
 
 const FeedBack = () => {
   return (
-    <section className="bg-gray-900 bg-opacity-70 text-center">
+    <section className="bg-gray-900">
       <div className="max-w-6xl mx-auto flex flex-col items-center justify-center py-12 md:py-20 lg:py-32 px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-4 md:mb-8 lg:mb-12">
           <h1 className="text-3xl sm:text-4xl font-bold text-blue-500 mb-4 sm:mb-6">

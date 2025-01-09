@@ -102,7 +102,7 @@ const BorrowedBooks = () => {
   };
 
   return (
-    <div className="bg-gray-900 min-h-screen p-4 py-8 md:py-12 lg:py-16">
+    <div className="bg-gray-900 bg-opacity-70 min-h-screen p-4 py-8 md:py-12 lg:py-16">
       <Helmet>
         <title>Borrowed Books - ShelfSpace</title>
       </Helmet>

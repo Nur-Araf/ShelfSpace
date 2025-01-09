@@ -114,7 +114,7 @@ const AddBook = () => {
   };
 
   return (
-    <div className="my-8 md:my-20">
+    <div className="bg-gray-900 bg-opacity-70 py-8 md:py-20">
       <Helmet>
         <title>Add Book - ShelfSpace</title>
       </Helmet>

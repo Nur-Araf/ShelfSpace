@@ -37,7 +37,7 @@ const AllBooks = () => {
   };
 
   return (
-    <div className="bg-gray-900 min-h-screen p-4 py-8 md:py-12 lg:py-16">
+    <div className="bg-gray-900 bg-opacity-70 min-h-screen p-4 py-8 md:py-12 lg:py-16">
       <Helmet>
         <title>All Books - ShelfSpace</title>
       </Helmet>
@@ -92,7 +92,7 @@ const AllBooks = () => {
             {filteredBooks.map((book, index) => (
               <motion.div
                 key={book._id}
-                className="bg-black p-4 rounded-lg shadow-md text-white transform transition-transform duration-300 hover:scale-105 cursor-pointer shadow-blue-600/20 hover:shadow-blue-500/60"
+                className="bg-gray-800 p-4 rounded-lg shadow-md text-white transform transition-transform duration-300 hover:scale-105 cursor-pointer shadow-blue-600/20 hover:shadow-blue-500/60"
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.2 }}

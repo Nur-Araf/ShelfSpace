@@ -40,10 +40,10 @@ const JoinCommunity = () => {
       <div className="max-w-6xl mx-auto flex flex-col py-12 md:py-20 lg:py-32 px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">
-          <h1 className="text-4xl sm:text-5xl font-bold text-blue-500 mb-4">
+          <h1 className="text-3xl sm:text-4xl font-bold text-blue-500 mb-4">
             Join Our Community
           </h1>
-          <p className="text-lg sm:text-xl text-gray-300 mb-6">
+          <p className="text-base sm:text-lg mb-6 sm:mb-8">
             Connect with fellow book lovers, share your favorite reads, and
             discover new stories.
           </p>

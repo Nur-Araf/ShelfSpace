@@ -52,7 +52,7 @@ const BookCategories = () => {
   };
 
   return (
-    <div className="bg-gray-900 text-gray-100 min-h-screen">
+    <div className="bg-gray-900 text-gray-100">
       {largeScreen && <AnimatedBird />}
       <div className="max-w-6xl mx-auto flex flex-col items-center justify-center py-12 md:py-20 lg:py-32 px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-4 md:mb-8 lg:mb-12">

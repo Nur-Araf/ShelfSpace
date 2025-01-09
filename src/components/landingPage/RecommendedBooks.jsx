@@ -7,16 +7,21 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const RecommendedBooks = () => {
-    const axiosScure = useAxiosScure();
-    const [books, setBooks] = useState([]);
+    // const axiosScure = useAxiosScure();
+    // const [books, setBooks] = useState([]);
 
-    useEffect(() => {
-      axiosScure
-        .get("https://assingment11-backend.vercel.app/all-books")
-        .then((res) => {
-          setBooks(res.data);
-        });
-    }, [axiosScure]);
+    // useEffect(() => {
+    //   try {
+    //     axiosScure
+    //       .get("https://assingment11-backend.vercel.app/all-books")
+    //       .then((res) => {
+    //         setBooks(res.data);
+    //       });
+    //   } catch (error) {
+    //     console.log("Books not Found", error);
+    //   }
+    // }, [axiosScure]);
+
 
   return (
     <section className="bg-gray-900 bg-opacity-70">

@@ -118,7 +118,7 @@ const AddBook = () => {
       <Helmet>
         <title>Add Book - ShelfSpace</title>
       </Helmet>
-      <div className="max-w-[25rem] md:max-w-2xl mx-auto bg-gray-900 p-4 md:p-8 rounded-xl shadow-lg">
+      <div className="max-w-[25rem] md:max-w-2xl mx-auto bg-gradient-to-tl from-black via-blue-950 to-blue-900 p-4 md:p-8 rounded-xl shadow-lg">
         <h2 className="text-3xl font-semibold text-center text-white mb-8">
           Submit Book Details
         </h2>

@@ -61,7 +61,7 @@ const BannerSlider = () => {
           </motion.p>
         </div>
 
-        <div className="absolute bottom-16 lg:bottom-28 bg-black bg-opacity-10 rounded-3xl left-1/2 transform -translate-x-1/2 h-64 w-64 md:h-80 md:w-80 lg:h-96 lg:w-96 p-4">
+        <div className="absolute bottom-16 xl:bottom-28 bg-black bg-opacity-10 rounded-3xl left-1/2 transform -translate-x-1/2 h-64 w-64 md:h-80 md:w-80 lg:h-64 lg:w-64 xl:h-96 xl:w-96 p-4">
           <Reading />
         </div>
       </div>

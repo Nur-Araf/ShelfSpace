@@ -74,7 +74,7 @@ const SignUp = () => {
         <div className="w-96 h-96 hidden lg:block">
           <Proton />
         </div>
-        <div className="bg-black p-8 rounded-lg shadow-lg w-full sm:max-w-md lg:max-w-lg">
+        <div className="bg-gradient-to-tl from-black via-blue-950 to-blue-900 p-8 rounded-lg shadow-lg w-full sm:max-w-md lg:max-w-lg">
           <h2 className="text-3xl font-bold text-center text-white mb-6">
             Register
           </h2>

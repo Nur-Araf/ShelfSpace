@@ -52,7 +52,7 @@ const LogIn = () => {
       <Helmet>
         <title>Log In - ShelfSpace</title>
       </Helmet>
-      <div className="bg-black lg:ml-32 p-8 rounded-lg shadow-lg w-full sm:max-w-md lg:max-w-lg">
+      <div className="bg-gradient-to-tl from-black via-blue-950 to-blue-900 lg:ml-32 p-8 rounded-lg shadow-lg w-full sm:max-w-md lg:max-w-lg">
         <h2 className="text-3xl font-bold text-center text-white mb-6">
           Sign In
         </h2>

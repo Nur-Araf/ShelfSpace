@@ -15,7 +15,10 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer ref={footerRef} className="bg-black text-gray-300 py-16">
+    <footer
+      ref={footerRef}
+      className="bg-gradient-to-r from-black via-blue-950 to-blue-500 text-gray-300 py-16"
+    >
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-0">
           <div className="mb-4 md:mb-0 text-center lg:text-left">
@@ -23,7 +26,7 @@ const Footer = () => {
               <Link to="/">
                 <div className="h-28 w-36 md:h-36 md:w-44 lg:h-44 lg:w-52">
                   <img
-                    src="/logo.png"
+                    src="/newLogo.png"
                     alt="logo"
                     className="h-full w-full object-contain"
                   />
@@ -72,19 +75,19 @@ const Footer = () => {
             <div className="flex justify-center md:justify-end space-x-4 mt-2">
               <a
                 href="#"
-                className="hover:text-blue-500 transition duration-300"
+                className="hover:text-gray-500 transition duration-300"
               >
                 <FaFacebook size={24} />
               </a>
               <a
                 href="#"
-                className="hover:text-blue-500 transition duration-300"
+                className="hover:text-gray-500 transition duration-300"
               >
                 <FaTwitter size={24} />
               </a>
               <a
                 href="#"
-                className="hover:text-blue-500 transition duration-300"
+                className="hover:text-gray-500 transition duration-300"
               >
                 <FaInstagram size={24} />
               </a>

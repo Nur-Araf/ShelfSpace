@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-black z-50 pt-[6px] md:pt-2 lg:pt-4 top-0 sticky">
+    <nav className="bg-gradient-to-r from-black via-blue-950 to-blue-500 z-50 top-0 sticky">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
           <div className="absolute inset-y-0 right-0 flex items-center lg:hidden ">
@@ -38,7 +38,7 @@ const Navbar = () => {
               <div className="flex items-center">
                 <div className="h-12 w-16">
                   <img
-                    src="/logo.png"
+                    src="/newLogo.png"
                     alt="logo"
                     className="h-full w-full object-contain"
                   />
@@ -96,7 +96,7 @@ const Navbar = () => {
                     </span>
                   </div>
                   <button
-                    className="h-fit text-white bg-gray-600 hover:bg-gray-700 px-4 py-3 rounded-md text-sm font-medium"
+                    className="h-fit text-white bg-gray-950 hover:bg-gray-900 px-4 py-3 rounded-md text-sm font-medium"
                     onClick={() => signOutUser()}
                   >
                     Log-out
@@ -106,13 +106,13 @@ const Navbar = () => {
                 <>
                   <NavLink
                     to="/sign-up"
-                    className="h-fit text-white bg-blue-600 hover:bg-blue-700 px-4 py-3 rounded-md text-sm font-medium"
+                    className="h-fit text-white bg-gray-950 hover:bg-gray-900 px-4 py-3 rounded-md text-sm font-medium"
                   >
                     Sign Up
                   </NavLink>
                   <NavLink
                     to="/log-in"
-                    className="h-fit text-white bg-gray-600 hover:bg-gray-700 px-4 py-3 rounded-md text-sm font-medium"
+                    className="h-fit text-white bg-gray-950 hover:bg-gray-900 px-4 py-3 rounded-md text-sm font-medium"
                   >
                     Log In
                   </NavLink>
@@ -175,7 +175,7 @@ const Navbar = () => {
                 </span>
               </div>
               <button
-                className="text-white text-center bg-gray-600 hover:bg-gray-700 block px-4 py-2 rounded-md text-base font-medium"
+                className="text-white text-center bg-gray-950 hover:bg-gray-900 block px-4 py-2 rounded-md text-base font-medium"
                 onClick={() => signOutUser()}
               >
                 Log-out
@@ -185,7 +185,7 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/sign-up"
-                className="text-white text-center bg-blue-600 hover:bg-blue-700 block px-4 py-2 rounded-md text-base font-medium"
+                className="text-white text-center bg-gradient-to-r to-black via-blue-950 from-blue-500 block px-4 py-2 rounded-md text-base font-medium"
                 activeclassname="bg-blue-700"
                 onClick={toggleMenu}
               >
@@ -193,7 +193,7 @@ const Navbar = () => {
               </NavLink>
               <NavLink
                 to="/log-in"
-                className="text-white text-center bg-gray-600 hover:bg-gray-700 block px-4 py-2 rounded-md text-base font-medium"
+                className="text-white text-center bg-gradient-to-r to-black via-blue-950 from-blue-500 block px-4 py-2 rounded-md text-base font-medium"
                 activeclassname="bg-gray-700"
                 onClick={toggleMenu}
               >

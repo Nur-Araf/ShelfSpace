@@ -53,28 +53,44 @@ const Navbar = () => {
               <div className="flex space-x-4">
                 <NavLink
                   to="/"
-                  className="text-white hover:bg-blue-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className={({ isActive }) =>
+                    `text-white hover:bg-blue-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
+                      isActive ? "bg-blue-700" : ""
+                    }`
+                  }
                   activeclassname="bg-blue-700"
                 >
                   Home
                 </NavLink>
                 <NavLink
                   to="/all-books"
-                  className="text-white hover:bg-blue-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className={({ isActive }) =>
+                    `text-white hover:bg-blue-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
+                      isActive ? "bg-blue-700" : ""
+                    }`
+                  }
                   activeclassname="bg-blue-700"
                 >
                   All Books
                 </NavLink>
                 <NavLink
                   to="/add-book"
-                  className="text-white hover:bg-blue-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className={({ isActive }) =>
+                    `text-white hover:bg-blue-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
+                      isActive ? "bg-blue-700" : ""
+                    }`
+                  }
                   activeclassname="bg-blue-700"
                 >
                   Add Book
                 </NavLink>
                 <NavLink
                   to="/borrowed-books"
-                  className="text-white hover:bg-blue-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className={({ isActive }) =>
+                    `text-white hover:bg-blue-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
+                      isActive ? "bg-blue-700" : ""
+                    }`
+                  }
                   activeclassname="bg-blue-700"
                 >
                   Borrowed Books
@@ -132,7 +148,11 @@ const Navbar = () => {
         <div className="px-2 pt-2 pb-3 space-y-1">
           <NavLink
             to="/"
-            className="text-white hover:bg-blue-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            className={({ isActive }) =>
+              `text-white hover:bg-blue-600 w-fit hover:text-white block px-3 py-2 rounded-md text-base font-medium ${
+                isActive ? "bg-gradient-to-bl to-blue-900 from-blue-600" : ""
+              }`
+            }
             activeclassname="bg-blue-700"
             onClick={toggleMenu}
           >
@@ -140,7 +160,11 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             to="/all-books"
-            className="text-white hover:bg-blue-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            className={({ isActive }) =>
+              `text-white hover:bg-blue-600 w-fit hover:text-white block px-3 py-2 rounded-md text-base font-medium ${
+                isActive ? "bg-gradient-to-bl to-blue-900 from-blue-600" : ""
+              }`
+            }
             activeclassname="bg-blue-700"
             onClick={toggleMenu}
           >
@@ -148,7 +172,11 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             to="/add-book"
-            className="text-white hover:bg-blue-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            className={({ isActive }) =>
+              `text-white hover:bg-blue-600 w-fit hover:text-white block px-3 py-2 rounded-md text-base font-medium ${
+                isActive ? "bg-gradient-to-bl to-blue-900 from-blue-600" : ""
+              }`
+            }
             activeclassname="bg-blue-700"
             onClick={toggleMenu}
           >
@@ -156,26 +184,30 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             to="/borrowed-books"
-            className="text-white hover:bg-blue-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            className={({ isActive }) =>
+              `text-white hover:bg-blue-600 w-fit hover:text-white block px-3 py-2 rounded-md text-base font-medium ${
+                isActive ? "bg-gradient-to-bl to-blue-900 from-blue-600" : ""
+              }`
+            }
             activeclassname="bg-blue-700"
             onClick={toggleMenu}
           >
             Borrowed Books
           </NavLink>
           {user ? (
-            <div className="flex items-center ml-2">
+            <div className="flex items-center ml-2 pt-2">
               <div className="relative inline-block group">
                 <img
                   src={user?.photoURL}
                   alt="profile"
-                  className="w-6 h-6 rounded-full mr-4 cursor-pointer"
+                  className="w-10 h-10 rounded-full border border-blue-500 mr-4 cursor-pointer"
                 />
                 <span className="absolute w-52 -bottom-6 left-1/2 transform translate-y-full opacity-0 group-hover:opacity-100 text-sm text-white bg-gray-800 border border-white p-2 rounded mt-2 z-50">
                   {user?.displayName}
                 </span>
               </div>
               <button
-                className="text-white text-center bg-gray-950 hover:bg-gray-900 block px-4 py-2 rounded-md text-base font-medium"
+                className="text-white text-center bg-gradient-to-r to-black via-blue-950 from-blue-900 block px-4 py-2 rounded-md text-base font-medium"
                 onClick={() => signOutUser()}
               >
                 Log-out

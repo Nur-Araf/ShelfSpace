@@ -7,7 +7,7 @@
 Visit our live site here: [ShelfSpace](https://assingment-11-9703f.web.app/)
 
 <div align="center">
-  <img height="300" src="https://github.com/user-attachments/assets/5e049427-6e36-4200-a00c-5584df595db7"/>
+  <img height="300" src="https://github.com/user-attachments/assets/448ddd1f-7d56-49aa-9ce2-b22b4e95784c"/>
 </div>
 
 ## Key Features
